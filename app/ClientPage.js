@@ -15,7 +15,7 @@ const CoffeeIcon = ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" wi
 const TeaIcon = ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M5.116 4.104A1 1 0 0 1 6.11 3h11.78a1 1 0 0 1 .994 1.105L17.19 20.21A2 2 0 0 1 15.2 22H8.8a2 2 0 0 1-2-1.79z" /><path d="M6 12a5 5 0 0 1 6 0 5 5 0 0 0 6 0" /></svg>;
 const SmoothieIcon = ({ className }) => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="m6 8 1.75 12.28a2 2 0 0 0 2 1.72h4.54a2 2 0 0 0 2-1.72L18 8" /><path d="M5 8h14" /><path d="M7 15a6.47 6.47 0 0 1 5 0 6.47 6.47 0 0 0 5 0" /><path d="m12 8 1-6h2" /></svg>;
 
-const GoDrinkLogo = () => (
+const GoDrugLogo = () => (
     <div className="flex items-center space-x-2">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pill-icon lucide-pill"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg>
         <span className="text-2xl font-bold tracking-wider">GoDrug</span>
@@ -50,7 +50,6 @@ const Toast = ({ message }) => {
 const Header = ({ onLogoClick }) => (
     <header className="sticky top-0 z-20 bg-gradient-to-r from-purple-500 to-cyan-400 text-white p-4 flex justify-between items-center shadow-lg">
         <button onClick={onLogoClick} className="cursor-pointer transition-transform duration-200 hover:scale-105">
-            <GoDrinkLogo />
         </button>
         <div className="flex items-center space-x-4">
             <SearchIcon className="h-6 w-6 cursor-pointer hover:opacity-80 transition-opacity" />
@@ -58,7 +57,7 @@ const Header = ({ onLogoClick }) => (
         </div>
     </header>
 );
-const WelcomeBanner = () => (<div className="p-6 sm:p-8 bg-gradient-to-r from-blue-500 to-cyan-400 text-white rounded-xl mb-8 shadow-lg"><h2 className="text-3xl font-bold mb-2">สวัสดีคุณคเณศร!</h2><p className="text-lg opacity-90">สั่งยาของคุณได้ง่ายๆ ที่นี่</p></div>);
+const WelcomeBanner = () => (<div className="p-6 sm:p-8 bg-gradient-to-r from-blue-500 to-cyan-400 text-white rounded-xl mb-8 shadow-lg"><h2 className="text-3xl font-bold mb-2">สวัสดี!</h2><p className="text-lg opacity-90">สั่งยาของคุณได้ง่ายๆ ที่นี่</p></div>);
 const CategoryNav = ({ onSelectCategory }) => (<div className="mb-8"><h3 className="text-2xl font-bold text-gray-800 mb-4">หมวดหมู่</h3><div className="grid grid-cols-2 sm:grid-cols-4 gap-4">{categories.map((cat) => (<div key={cat.name} onClick={() => onSelectCategory(cat.name)} className={`${cat.color} p-4 rounded-xl text-center shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer`}><cat.icon className="h-8 w-8 mx-auto mb-2 text-purple-600" /><span className="font-semibold text-gray-700">{cat.thaiName}</span></div>))}</div></div>);
 const ProductCard = ({ product, onAddToCart }) => (<div className="bg-white rounded-xl shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 ease-in-out group flex flex-col"><img src={product.image} alt={product.name} className="w-full h-48 object-cover" onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/400x300/e2e8f0/64748b?text=Image+Not+Found'; }} /><div className="p-4 flex flex-col flex-grow"><h4 className="text-lg font-bold text-gray-800">{product.name}</h4><p className="text-sm text-gray-500 mb-3">{product.thaiName}</p><p className="text-gray-600 text-sm flex-grow">{product.description}</p><div className="mt-4 flex justify-between items-center"><span className="text-xl font-extrabold text-purple-600">฿{product.price}</span><button onClick={() => onAddToCart(product)} className="bg-purple-500 text-white rounded-full p-2 group-hover:bg-purple-600 group-hover:scale-110 transition-all duration-200"><PlusCircleIcon className="w-6 h-6" /></button></div></div></div>);
 //const BottomNav = ({ activeView, setActiveView }) => { const navItems = [{ name: 'Home', thaiName: 'หน้าหลัก', icon: HomeIcon, view: 'home' }, { name: 'Menu', thaiName: 'เมนู', icon: CoffeeIcon, view: 'menu' }, { name: 'Cart', thaiName: 'ตะกร้า', icon: ShoppingCartIcon, view: 'cart' }, { name: 'Profile', thaiName: 'โปรไฟล์', icon: UserIcon, view: 'profile' },]; return (<nav className="fixed bottom-0 left-0 w-full bg-white/80 backdrop-blur-sm shadow-[0_-2px_10px_rgba(0,0,0,0.05)] md:hidden z-20"><div className="flex justify-around items-center h-16">{navItems.map(item => (<button key={item.name} onClick={() => setActiveView(item.view)} className={`flex flex-col items-center justify-center space-y-1 transition-colors ${activeView === item.view ? 'text-purple-600' : 'text-gray-500'}`}><item.icon className="w-6 h-6" /><span className="text-xs font-medium">{item.thaiName}</span></button>))}</div></nav>); };
