@@ -47,22 +47,12 @@ const Toast = ({ message }) => {
 // ===== [END] NEW TOAST COMPONENT =====
 
 //const Header = () => (<header className="sticky top-0 z-20 bg-gradient-to-r from-blue-500 to-cyan-400 text-white p-4 flex justify-between items-center shadow-lg"><GoDrinkLogo /><div className="flex items-center space-x-4"><SearchIcon className="h-6 w-6 cursor-pointer hover:opacity-80 transition-opacity" /><UserIcon className="h-6 w-6 cursor-pointer hover:opacity-80 transition-opacity" /></div></header>);
-const Header = ({ onLogoClick, onCartClick }) => (
+const Header = ({ onLogoClick }) => (
     <header className="sticky top-0 z-20 bg-gradient-to-r from-purple-500 to-cyan-400 text-white p-4 flex justify-between items-center shadow-lg">
         <button onClick={onLogoClick} className="cursor-pointer transition-transform duration-200 hover:scale-105">
-            <GoDrugLogo /> {/* อย่าลืมเรียกคอมโพเนนต์โลโก้ */}
         </button>
         <div className="flex items-center space-x-4">
             <SearchIcon className="h-6 w-6 cursor-pointer hover:opacity-80 transition-opacity" />
-            <button onClick={onCartClick} className="relative transition-opacity hover:opacity-80">
-                <ShoppingCartIcon className="h-6 w-6" />
-                {/* เพิ่มส่วนนี้เพื่อแสดงจำนวนสินค้าในตะกร้า */}
-                {cart.length > 0 && (
-                    <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-xs text-white">
-                        {cart.length}
-                    </span>
-                )}
-            </button>
             <UserIcon className="h-6 w-6 cursor-pointer hover:opacity-80 transition-opacity" />
         </div>
     </header>
