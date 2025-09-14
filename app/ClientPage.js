@@ -24,7 +24,7 @@ const GoDrugLogo = () => (
 
 const categories = [
     { name: 'Test', thaiName: 'โรคไต', icon: CoffeeIcon, color: 'bg-pink-100' },
-    { name: 'Tea', thaiName: 'ชา', icon: TeaIcon, color: 'bg-sky-100' },
+    { name: 'Tea', thaiName: 'โรคเบาหวาน', icon: TeaIcon, color: 'bg-sky-100' },
     { name: 'Smoothies', thaiName: 'สมูทตี้', icon: SmoothieIcon, color: 'bg-green-100' },
     { name: 'Special', thaiName: 'เมนูพิเศษ', icon: SpecialDrinkIcon, color: 'bg-yellow-100' },
 ];
