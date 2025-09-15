@@ -178,7 +178,7 @@ export default function ClientPage({ initialProducts }) {
                         <CategoryNav onSelectCategory={handleSelectCategory} />
                         <div>
                             <div className="flex justify-between items-center mb-4">
-                               <h3 className="text-2xl font-bold text-gray-800">{selectedCategory ? `${selectedCategory} Drinks` : 'เมนูแนะนำ'}</h3>
+                               <h3 className="text-2xl font-bold text-gray-800">{selectedCategory ? `${selectedCategory} Drug` : 'เมนูแนะนำ'}</h3>
                                {selectedCategory && (
                                    <button onClick={() => setSelectedCategory(null)} className="text-sm font-semibold text-blue-600 hover:underline">แสดงทั้งหมด</button>
                                )}
