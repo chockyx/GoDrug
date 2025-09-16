@@ -164,36 +164,49 @@ export default function ClientPage({ initialProducts }) {
     // };
 
     const renderView = () => {
-        switch (activeView) {
-            case 'cart': 
-                return <CartView cart={cart} onUpdateCart={handleUpdateCart} onBack={handleGoHome} />;
-            
-            case 'menu':
-            case 'home':
-            default:
-                const productsToShow = selectedCategory ? filteredProducts : (products ? products.slice(0, 3) : []);
+    switch (activeView) {
+        case 'cart': 
+            return <CartView cart={cart} onUpdateCart={handleUpdateCart} onBack={handleGoHome} />;
+        
+        case 'menu':
+        case 'home':
+        default:
+            const productsToShow = selectedCategory
+                ? filteredProducts
+                : (products || []); // ✅ แสดงสินค้าทั้งหมดในหน้า Home
 
-                return (
-                    <div className="p-4 sm:p-6">
-                        <WelcomeBanner />
-                        <CategoryNav onSelectCategory={handleSelectCategory} />
-                        <div>
-                            <div className="flex justify-between items-center mb-4">
-                               <h3 className="text-2xl font-bold text-gray-800">{selectedCategory ? `${selectedCategory} Drug` : 'เมนูแนะนำ'}</h3>
-                               {selectedCategory && (
-                                   <button onClick={() => setSelectedCategory(null)} className="text-sm font-semibold text-blue-600 hover:underline">แสดงทั้งหมด</button>
-                               )}
-                            </div>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                                {productsToShow.map(product => (
-                                    <ProductCard key={product.id} product={product} onAddToCart={handleAddToCart} />
-                                ))}
-                            </div>
+            return (
+                <div className="p-4 sm:p-6">
+                    <WelcomeBanner />
+                    <CategoryNav onSelectCategory={handleSelectCategory} />
+                    <div>
+                        <div className="flex justify-between items-center mb-4">
+                            <h3 className="text-2xl font-bold text-gray-800">
+                                {selectedCategory ? `${selectedCategory} Drug` : 'ยาทั้งหมด'}
+                            </h3>
+                            {selectedCategory && (
+                                <button 
+                                    onClick={() => setSelectedCategory(null)} 
+                                    className="text-sm font-semibold text-blue-600 hover:underline"
+                                >
+                                    แสดงทั้งหมด
+                                </button>
+                            )}
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                            {productsToShow.map(product => (
+                                <ProductCard 
+                                    key={product.id} 
+                                    product={product} 
+                                    onAddToCart={handleAddToCart} 
+                                />
+                            ))}
                         </div>
                     </div>
-                );
-        }
-    };
+                </div>
+            );
+    }
+};
 
 
     return (
