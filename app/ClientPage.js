@@ -65,7 +65,7 @@ const ProductCard = ({ product, onAddToCart }) => (<div className="bg-white roun
 const BottomNav = ({ activeView, setActiveView, onHomeClick }) => {
     const navItems = [
         { name: 'Home', thaiName: 'หน้าหลัก', icon: HomeIcon, view: 'home' },
-        { name: 'Menu', thaiName: 'เมนู', icon: MenuIcon, view: 'menu' },
+        { name: 'Drug', thaiName: 'ยา', icon: MenuIcon, view: 'drug' },
         { name: 'Cart', thaiName: 'ตะกร้า', icon: ShoppingCartIcon, view: 'cart' },
         { name: 'Profile', thaiName: 'โปรไฟล์', icon: UserIcon, view: 'profile' },
     ];
@@ -152,7 +152,7 @@ export default function ClientPage({ initialProducts }) {
 
     const handleUpdateCart = (productToUpdate, newQuantity) => { if (newQuantity <= 0) { setCart(prevCart => prevCart.filter(item => item.id !== productToUpdate.id)); } else { setCart(prevCart => prevCart.map(item => item.id === productToUpdate.id ? { ...item, quantity: newQuantity } : item)); } };
     const filteredProducts = useMemo(() => { if (!products) return []; if (!selectedCategory) return products; return products.filter(p => p.category === selectedCategory); }, [selectedCategory, products]);
-    const handleSelectCategory = (categoryName) => { setSelectedCategory(categoryName); setActiveView('menu'); }
+    const handleSelectCategory = (categoryName) => { setSelectedCategory(categoryName); setActiveView('drug'); }
 
     // const renderView = () => {
     //     switch (activeView) {
@@ -168,7 +168,7 @@ export default function ClientPage({ initialProducts }) {
         case 'cart': 
             return <CartView cart={cart} onUpdateCart={handleUpdateCart} onBack={handleGoHome} />;
         
-        case 'menu':
+        case 'drug':
         case 'home':
         default:
             const productsToShow = selectedCategory
