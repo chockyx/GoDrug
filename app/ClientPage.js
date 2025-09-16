@@ -23,10 +23,10 @@ const GoDrugLogo = () => (
 );
 
 const categories = [
-    { name: 'โรคเบาหวาน', thaiName: 'โรคเบาหวาน', icon: CoffeeIcon, color: 'bg-pink-100' },
-    { name: 'โรคความดันโลหิตสูง', thaiName: 'โรคความดันโลหิตสูง', icon: HypertensionIcon, color: 'bg-sky-100' },
-    { name: 'โรคกรดไหลย้อน', thaiName: 'โรคกรดไหลย้อน', icon: GERDIcon, color: 'bg-green-100' },
-    { name: 'โรคหอบหืด', thaiName: 'โรคหอบหืด', icon: AsthmaIcon, color: 'bg-yellow-100' },
+    { name: 'Diabetes', thaiName: 'โรคเบาหวาน', icon: CoffeeIcon, color: 'bg-pink-100' },
+    { name: 'Hypertension', thaiName: 'โรคความดันโลหิตสูง', icon: HypertensionIcon, color: 'bg-sky-100' },
+    { name: 'GERD', thaiName: 'โรคกรดไหลย้อน', icon: GERDIcon, color: 'bg-green-100' },
+    { name: 'Asthama', thaiName: 'โรคหอบหืด', icon: AsthmaIcon, color: 'bg-yellow-100' },
 ];
 
 // --- Components ---
